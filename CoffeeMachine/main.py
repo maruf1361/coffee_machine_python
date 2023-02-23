@@ -33,6 +33,8 @@ money = 0
 
 
 def resources_availability(coffee):
+    """This function takes coffee name and then checks if the necessary ingredients to make that coffee is available in
+    the machine or not"""
     for item in coffee:
         if coffee[item] >= resources[item]:
             print(f"Sorry! We ran out of {item}")
@@ -42,6 +44,8 @@ def resources_availability(coffee):
 
 
 def calculate_coins():
+    """This function asks the user how many coins (quarters, dimes, nickles and pennies) they want to give the machine
+    and takes the coins and then convert them to their dollar equivalencies and calculates the amount."""
     list_of_coins = ['quarters', 'dimes', 'nickles', 'pennies']
     coins_equivalencies = [0.25, 0.1, 0.05, 0.01]
     usd = 0
@@ -61,12 +65,14 @@ def calculate_coins():
 
 
 def update_ingredients_amount(coffee):
+    """This function updates the remaining ingredients resources available in the machine after each order"""
     for item in coffee:
         remaining_amount = resources[item] - coffee[item]
         resources[item] = remaining_amount
     return resources
 
 def report():
+    """This function shows a report of available resources in the machine"""
     for item in resources:
         print(f"{item} = {resources[item]}")
     return f"money = {money}"
@@ -93,15 +99,8 @@ while machine_on == 0:
             update_ingredients_amount(drink)
             money =+ drink_cost
 
-# I have a function that checks if the coffee making ingredients are enough or not.
-# I have another function that asks for coins and calculates the coins.
-
-#TODO: Now I have to make a function which I will run after the ingredients check function and calculation function.
-# This new function will take the drink name and then access the ingredients in the machine resources and subtract the
-# amount of coffee ingredients from the machine resources.
 
 
-#TODO: Now I have make an another function for the report. This function will show how many ingredients remaining
 
 
 
